@@ -9,7 +9,7 @@ we can define simple macros
 we can also define macro functions  
 ``#defin myFunc(x,y) x*y+(x+y)``
 
-###useage  
+### useage  
 pass in list of file on command line.  
   
 example:  
