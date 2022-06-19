@@ -36,6 +36,7 @@ local function makeParams(parameterList)
 end
 
 
+
 --take a macro function in contents and replace it with the function body.
 local function replaceFunction(params,func,funcName,contents,macro)
 	--for each instance of the function macro.
@@ -64,8 +65,10 @@ local function makeMacroFunction(macros,defined)
 	local funcName <const>, parameterList <const>,func <const> = defined:match("#define%s+([^(]+)%(([^)]+)%)%s*([^\n\r]+)")
 	--parse out the parameters into a table.
 	local params <const> = makeParams(parameterList)
+	--check function body for previously defined macros, and if found expand them.
+	local macroExpandedFunc <const> = replaceWithMacros(macros,func)
 	--add macro function to the macros table.
-	macros[funcName .. "%([^)]+%)"] = function(macro,content) return replaceFunction(params,func,funcName,content,macro) end
+	macros[funcName .. "%([^)]+%)"] =  function(macro,content) return replaceFunction(params,macroExpandedFunc,funcName,content,macro) end
 end
 
 local function findMacros(contents)
@@ -77,7 +80,8 @@ local function findMacros(contents)
 		if defined:match("#define%s+[^(]+%(([^)]+)%)") then
 			makeMacroFunction(macros,defined)
 		else
-			local body <const> = defined:match("#define%s*[^%s]+%s*([^\n\r]+)")
+			--body of macro. check to see if it contains any previously defined macros, and if so, expand them.
+			local body <const> = replaceWithMacros(macros,defined:match("#define%s*[^%s]+%s*([^\n\r]+)"))
 			macros[defined:match("#define%s*([^%s]+)")] = function(macro,str) return str:gsub(macro,body) end
 		end
 	end
