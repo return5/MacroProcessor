@@ -9,3 +9,8 @@ we can define simple macros
 we can also define macro functions  
 ``#defin myFunc(x,y) x*y+(x+y)``
 
+###useage  
+pass in list of file on command line.  
+  
+example:  
+```lua macros.lua  file1 file2 file3```

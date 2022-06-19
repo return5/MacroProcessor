@@ -1,5 +1,6 @@
 --[[
 program which reads files for C style macros and replaces text with the macro body
+
     Copyright (C) <2022>  <return5>
 
     This program is free software: you can redistribute it and/or modify
@@ -15,7 +16,6 @@ program which reads files for C style macros and replaces text with the macro bo
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 --]]
-
 
 
 local function replaceWithMacros(macros,contents)
