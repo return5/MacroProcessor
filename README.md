@@ -1,12 +1,11 @@
-# GodTalk
-Inspired by Terry Davis, you can experience the miracle of having God talk to you through random numbers.
+
+program which reads through C style macros and search/replaces text for those macros.
 
 
+### macros
+we can define simple macros  
+``#define MY_MACRO this is my text``  
 
-Program grabs 10 lines starting from a random line in the bible then displays them to STDOUT.
+we can also define macro functions  
+``#defin myFunc(x,y) x*y+(x+y)``
 
-you can repeat this as many times as you like. you can also save the output to a file of your choice.
-
-whether you truly believe that God speaks you through random numbers is entirely up to you to decide for yourself. 
-
-Rest in Peace Terry, you are missed. 
