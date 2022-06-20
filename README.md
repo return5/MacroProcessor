@@ -18,10 +18,17 @@ you can also use previously declared macros inside other macros.
 the text -> BOTH! -> expands to -> hello world!
 ```
 
-you can combine regular and function style macros.   
+you can combine regular and function style macros:
+```
+#define HELLO hello,world!
+#define myFunc(x,y) x*y
+#define BOTH(x,y) HELLO myFunc(x,y)
+
+this test-> BOTH(1,2) -> expans to -> hello,world! 1*2
+```
 
 ### useage  
-pass in list of file on command line.  
+pass in list of files on command line.  
   
 example:  
 ```lua macros.lua  file1 file2 file3```
