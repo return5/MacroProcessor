@@ -24,7 +24,7 @@ you can combine regular and function style macros:
 #define myFunc(x,y) x*y
 #define BOTH(x,y) HELLO myFunc(x,y)
 
-this test-> BOTH(1,2) -> expans to -> hello,world! 1*2
+this test-> BOTH(1,2) -> expands to -> hello,world! 1*2
 ```
 
 ### useage  
