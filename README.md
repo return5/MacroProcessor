@@ -27,7 +27,7 @@ you can combine regular and function style macros:
 this test-> BOTH(1,2) -> expands to -> hello,world! 1*2
 ```
 
-### useage  
+### usage  
 pass in list of files on command line.  
   
 example:  
